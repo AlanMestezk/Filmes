@@ -1,5 +1,7 @@
-import { View, Text, Image, TouchableOpacity } from "react-native"
+import { View, Text, Image, TouchableOpacity, Modal } from "react-native"
 import { Style } from "../../styles/FilmesStyles.module"
+import { useState } from "react"
+import { ModalSinopse } from "../../modal"
 
 interface FilmesProps{
 
@@ -15,7 +17,12 @@ interface FilmesProps{
 
 export const Filmes = ({data}:FilmesProps)=>{
 
-    console.log(data.foto)
+    const [buttonActive, setButtonActive] = useState(false)
+
+    const showSinopse = ()=>{
+
+        setButtonActive(!buttonActive)
+    }
 
     return(
 
@@ -31,11 +38,33 @@ export const Filmes = ({data}:FilmesProps)=>{
                    
                 />
 
-                <TouchableOpacity style={Style.button}>
+                <TouchableOpacity 
+                    style={Style.button}
+                    onPress={showSinopse}
+                >
 
                     <Text style={Style.textButton}>Sinopse</Text>
 
                 </TouchableOpacity>
+
+                <Modal
+                    animationType="slide"
+                    visible={buttonActive}
+                    transparent
+                    style={Style.modal}
+                >
+
+                    {
+                        
+                        <ModalSinopse 
+                            sinopse={data.sinopse}
+                            closeModal={showSinopse}
+                        />
+
+                    }
+
+
+                </Modal>
 
 
             </View>

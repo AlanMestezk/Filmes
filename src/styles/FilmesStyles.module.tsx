@@ -14,11 +14,9 @@ export const Style = StyleSheet.create(
             padding: 22,
         },
         title:{
-
             fontSize:22,
             fontWeight: 'bold',
             marginBottom: 22
-
         },
         image:{
             zIndex: 2,
@@ -39,7 +37,11 @@ export const Style = StyleSheet.create(
             fontSize: 18,
             fontWeight: 'bold',
             color: 'aliceblue'
-
+        },
+        modal:{
+            marginTop: 300,
+            justifyContent: 'center',
+            alignItems: 'center'
         }
     }
 )
