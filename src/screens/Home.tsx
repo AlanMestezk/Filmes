@@ -2,6 +2,7 @@ import { View, Text, FlatList } from "react-native";
 import { Api } from "../services/api"
 import { useEffect, useState } from "react";
 import { Filmes } from "./components";
+import { Style } from "../styles/HomeStyles.module";
 
 export const Home =()=>{
 
@@ -24,7 +25,7 @@ export const Home =()=>{
 
     return(
 
-        <View>
+        <View style={Style.container}>
             
             <FlatList 
                 data={filmes}
